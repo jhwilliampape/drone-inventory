@@ -63,12 +63,13 @@ class Drone(db.Model):
     camera_quality = db.Column(db.String(120), nullable = True)
     flight_time = db.Column(db.String(100), nullable = True)
     max_speed = db.Column(db.String(100))
+    dimensions = db.Column(db.String(100))
     weight = db.Column(db.String(50))
     cost_of_prod = db.Column(db.Numeric(precision = 10, scale =2))
     series = db.Column(db.String(150))
     user_token = db.Column(db.String, db.ForeignKey('user.token'), nullable = False)
 
-    def __init__(self, name, description, price, camera_quality, flight_time, max_speed, dimentions, weight, cost_of_prod, series, user_token):
+    def __init__(self, name, description, price, camera_quality, flight_time, max_speed, dimensions, weight, cost_of_prod, series, user_token):
         self.id = self.set_id()
         self.name = name
         self.description = description
@@ -76,7 +77,7 @@ class Drone(db.Model):
         self.camera_quality = camera_quality
         self.flight_time = flight_time
         self.max_speed = max_speed
-        self.dimentions = dimentions
+        self.dimensions = dimensions
         self.weight = weight
         self.cost_of_prod = cost_of_prod
         self.series = series
@@ -92,7 +93,7 @@ class Drone(db.Model):
 # API Schema via Marshmallow
 class DroneSchema(ma.Schema):
     class Meta:
-        fields = ['id', 'name', 'description', 'camera_quality', 'flight_time', 'max_speed', 'dimentions', 'weight', 'cost_of_pro', 'series']
+        fields = ['id', 'name', 'description', 'camera_quality', 'flight_time', 'max_speed', 'dimensions', 'weight', 'cost_of_pro', 'series']
 
 # Singular data point return
 drone_schema = DroneSchema()
