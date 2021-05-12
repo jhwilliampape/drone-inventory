@@ -18,7 +18,7 @@ def create_drone(current_user_token): #coming form token_required decorator
      cam_quality = request.json['cam_quality']
      flight_time = request.json['flight_time']
      max_speed = request.json['max_speed']
-     dimensions = request.json['dimentions']
+     dimensions = request.json['dimensions']
      weight = request.json['weight']
      cost_of_prod = request.json['cost_of_prod']
      series = request.json['series']
